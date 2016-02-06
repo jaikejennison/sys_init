@@ -1,0 +1,325 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/root/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded. ZSH_THEME="obraun" ZSH_THEME="dpoggi"
+ZSH_THEME="lambda-mod"
+#ZSH_THEME="random"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(colorize debian git git-flow nmap ubuntu)
+
+# User configuration
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export MANPATH="/usr/local/man:$MANPATH"
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
+# Set Terminal output text color
+#export CLICOLOR=1
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+# If not running interactively, don't do anything
+# case $- in
+#    *i*) ;;
+#      *) return;;
+# esac
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+#HISTCONTROL=ignoreboth
+# append to the history file, don't overwrite it
+#shopt -s histappend
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#shopt -s checkwinsize
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+#if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+#    debian_chroot=$(cat /etc/debian_chroot)
+#fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+#case "$TERM" in
+#    xterm-color) color_prompt=yes;;
+#esac
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+#	color_prompt=yes
+#    else
+#	color_prompt=
+#    fi
+#fi
+
+#if [ "$color_prompt" = yes ]; then
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
+#unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    ;;
+#*)
+#    ;;
+#esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias llh='ls --color=auto -AlhF'
+alias ll='ls --color=auto -alF'
+alias la='ls --color=auto -AF'
+alias l='ls --color=auto -CF'
+alias cls='clear'
+# Add an "alert" alias for long running commands.  Use like so:
+#sleep 10; alert
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
+
+# #######################################
+# ###  ___  _  _        _    __  __   ###
+# ### | _ )(_)| |_  __ | |_  \ \/ /   ###
+# ### | _ \| ||  _|/ _|| ' \  >  <    ###
+# ### |___/|_| \__|\__||_||_|/_/\_\   ###
+# ###                                 ###
+# ### 5/26/13            jaike howard ###
+# #######################################
+#
+# Servers and Channels
+#
+# irc.freenode.net
+#      boingboing
+#      ubuntu
+#      archlinux 
+#
+# mhserver.ddns01.com
+#     test
+#     admin
+#     forbiddensub
+#     anon
+#
+# Aliases: Alvernative names that resolve to BitchX
+#alias bitchx='BitchX'
+#alias bx='BitchX' 
+#
+# HOST URLS:
+#export IRCSERVER=irc.freenode.net
+#export IRCSERVERS "server:port server2:port2 server3:port3" 
+#export IRC_HOST "virtual hostname here" (see sec. 3.7 for details)
+#
+# User Settings:
+#export IRCNAME "hi, I'm no longer too lame to read BitchX.doc!"
+#export IRCUSER=Squid_BitchX_1_0
+#export IRCNAME=Cyber Bob BitchX
+#set USERMODES +i
+# lets set the directory where the dcc-ed files will go
+#set DCC_DLDIR ~/Downloads
+# do we want to show the away message once in the channels?
+# NOTE: some ops do kick/ban for this so be carefull!
+#set AUTO_AWAY_TIME 1000
+#set SHOW_AWAY_ONCE OFF
+# we still dont want to auto-kick ops do we?
+#set KICK_OPS OFF
+# we are nice guys and dont try to take over an unregistered channel if it becomes opless
+# by cycling it so lets set it here
+#set HACKING OFF
+# do we want the timestamps to be shown?
+#set TIMESTAMP ON
+# OK now lets set some protection on here - this are quite nice settings,
+# nothing enforced so you leave in peace with the others - do not just
+# turn something on if you dont know what you're doing - you might have
+# problems with your channel manager because of kicking / baning
+# without a warning first lets set the general flood protection on - we still want to be warned dont we?
+# NOTE: this settings can be changed while the client running with /toggle
+#set FLOOD_PROTECTION OFF
+#set CTCP_FLOOD_RATE OFF
+#set FLOOD_WARNING OFF
+#set FLOOD_KICK OFF
+#set DEOPLOOD OFF
+#set PUBFLOOD OFF
+#set KICKFLOOD OFF
+#set JOINFLOOD OFF
+#set NICKFLOOD OFF
+# now lets set the BANTYPE: N-normal B-better, etc.
+#set BANTYPE N
+# now we want to make our lifes better and make some aliases
+#ALIAS WIN window new hide
+#ALIAS DD window double on
+# this will make a new hidden window when u type /WIN and it makes it double with /DD do we want these both commands in a single one? make a new doubled hidded window - you can change to these hidden windows with ALT+1 ALT+2 etc... thanks to fudd@EFNet #BitchX site admin
+# begin of alias
+# 	ALIAS WC (void) {
+# 		window new double on hide
+# 	}
+# 	ALIAS WJ (chan, void) {
+# 		window new double on channel $chan hide
+# 	}
+# end of alias - now with /wc we can have our new window hidden and double
+# do we want an alias for loging to X on undernet or a simillar bot?
+# NOTE: DO NOT just put your logins and passwords here because you might
+# just give those away in a flash!!! don't be lazy and type it yourself!
+# and this wont be done on connect - is not a "Perform on Connect"
+# if you still want these automated check the [BX] forum for the scripts!
+#ALIAS ID /msg x@channels.undernet.org login
+# do we want an alias to ask X to op us?
+#ALIAS OPME /msg x op $C $N
+# NOTE: the alias for chanserv networks will be different from this one
+# do we want also a nickserv identify command alias?
+#ALIAS NICKSERV /msg nickserv identify
+# NOTE: check the difference here:
+# you will have to /ID your_user your_password
+# and /nickserv your_password
+# OK we're almost done. Do we want some [BX] nifty scripts to be loaded?
+# e.g. a logger likee "Logger", an all around script like "cypress", or a
+# colorfull script like "LookGood" - carefull with this one - was made for
+# EFNet and I had some trouble with it
+# check http://scripts.bitchx.org/ for them, read the instructions!
+# this is the good place for it to be loaded - disabled by default
+# eval load $HOME/cyp/cyp.bx
+# this was for using cypress script - just an example
+# END of .bitchxrc file
+# NOTE: for making it a small file just lose all the comments out and
+# just put the settings on aliases.
+# Of course if you use a script this some of aliases and settings will
+# be changed so read the info about the script first!
+
+# ########################################################################
+# ### 5/26/13                  MySQL Top                  jaike howard ### 
+# ########################################################################
+#
+# ABOUT:
+# Watch is a nice little linux util that runs a command every “n” 
+# sconds (it defaults to 2 seconds). If you use the –differences 
+# witch, it will highlight the differences between one update and 
+# another. I use watch for all kinds of monitoring activities, 
+# such as watching a directory to see a file grow in size as it  
+# gets transfered.
+#
+# Here’s a quick shell function that you can  add  to 
+# bashrc/.bash_profile/.zshrc to use on arbitrary hosts:
+#
+# Then just pass in any creds/host info you need like a normal mysql 
+# command:
+#
+# mysqltop -u[username] -p[password] -h[SQLServer.com] -P[port e.g. 3307]d
+#
+# ########################################################################
+function mysqltop() {
+    MYSQL_OPTS=$@
+    watch -n 1 --differences "mysql $MYSQL_OPTS -e 'show processlist'"
+}
+
