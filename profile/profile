@@ -115,15 +115,12 @@ alias l='ls -CF'
 # ### 5/26/13            jaike howard ###
 # #######################################
 #
-# Servers and Channels
-#
+# Servers and Channels:
 #
 # irc.freenode.net
 #      boingboing
 #      ubuntu
 #      archlinux 
-#
-#
 #
 # mhserver.ddns01.com
 #     test
@@ -132,26 +129,21 @@ alias l='ls -CF'
 #     anon
 #
 # Aliases:
-#
 # Alvernative names that resolve to BitchX
-#
 #alias bitchx='BitchX'
 #alias bx='BitchX' 
 #
 # HOST URLS:
-#
 # export IRCSERVER=irc.freenode.net
 # export IRCSERVERS "server:port server2:port2 server3:port3" 
 # export IRC_HOST "virtual hostname here" (see sec. 3.7 for details)
 #
 #
 # User Settings:
-#
 # export IRCNAME "hi, I'm no longer too lame to read BitchX.doc!"
 # export IRCUSER=Squid_BitchX_1_0
 # export IRCNAME=Cyber Bob BitchX
-#
-#########################################
+# ########################################
 #set USERMODES +i
 # lets set the directory where the dcc-ed files will go
 #set DCC_DLDIR ~/Downloads
@@ -207,8 +199,7 @@ alias l='ls -CF'
 # and this wont be done on connect - is not a "Perform on Connect"
 # if you still want these automated check the [BX] forum for the scripts!
 #ALIAS ID /msg x@channels.undernet.org login
-
-#do we want an alias to ask X to op us?
+# do we want an alias to ask X to op us?
 #ALIAS OPME /msg x op $C $N
 # NOTE: the alias for chanserv networks will be different from this one
 # do we want also a nickserv identify command alias?
@@ -216,7 +207,6 @@ alias l='ls -CF'
 # NOTE: check the difference here:
 # you will have to /ID your_user your_password
 # and /nickserv your_password
-
 # OK we're almost done. Do we want some [BX] nifty scripts to be loaded?
 # e.g. a logger likee "Logger", an all around script like "cypress", or a
 # colorfull script like "LookGood" - carefull with this one - was made for
@@ -234,9 +224,7 @@ alias l='ls -CF'
 # ########################################################################
 # ### 5/26/13                  MySQL Top                  jaike howard ### 
 # ########################################################################
-#
 # ABOUT:
-#
 # Watch is a nice little linux util that runs a command every “n” 
 # sconds (it defaults to 2 seconds). If you use the –differences 
 # witch, it will highlight the differences between one update and 
@@ -249,7 +237,6 @@ alias l='ls -CF'
 #
 # Then just pass in any creds/host info you need like a normal mysql 
 # command:
-#
 # mysqltop -u[username] -p[password] -h[example.com] -P[port e.g. 3307]d
 #
 # COMMANDS:
@@ -259,54 +246,38 @@ function mysqltop() {
     MYSQL_OPTS=$@
     watch -n 1 --differences "mysql $MYSQL_OPTS -e 'show processlist'"
 }
-
 # ########################################################################
 # ### 5/26/13              Long List Human - llh          jaike howard ###
-# ########################################################################
-# 
+# ######################################################################## 
 # ABOUT:
-#
 # COMMANDS:
-#
 # ########################################################################
 function llh() {
     ls -lh
 }
-
 # ########################################################################
 # ### 5/26/13              Long List (Human) - ll         jaike howard ###
 # ########################################################################
-#
 # ABOUT:
-#
 # COMMANDS:
-#
 # ########################################################################
 function ll() {
     ls -lh
 }
-
 # ########################################################################
 # ### 5/26/13         Long List (Human) All - la          jaike howard ###
 # ########################################################################
-#
 # ABOUT:
-#
 # COMMANDS:
-#
 # ########################################################################
 function la() {
     ls -lah
 }
-
 # ########################################################################
 # ### 12/12/13     MSDOS Style Clear Screen - cls          jaike howard ###
-# ########################################################################
-# 
+# ######################################################################## 
 # ABOUT:
-#
 # COMMANDS:
-#
 # ########################################################################
 function cls() {
 		clear
