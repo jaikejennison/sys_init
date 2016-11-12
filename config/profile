@@ -23,88 +23,85 @@
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-#if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-#    debian_chroot=$(cat /etc/debian_chroot)
-#fi
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-#    xterm-color) color_prompt=yes;;
-#esac
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
-#if [ -n "$force_color_prompt" ]; then
-#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
-#	color_prompt=yes
-#    else
-#	color_prompt=
-#    fi
-#fi
+	color_prompt=yes
+    else
+	color_prompt=yes
+    fi
+fi
 
-#if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#else
-#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-#fi
-#unset color_prompt force_color_prompt
-
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
-#case "$TERM" in
-#xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-#    ;;
-#*)
-#    ;;
-#esac
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 # enable color support of ls and also add handy aliases
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=always'
-    alias dir='dir --color=always'
-    alias vdir='vdir --color=always'
-    alias grep='grep --color=always'
-    alias fgrep='fgrep --color=always'
-    alias egrep='egrep --color=always'
-#fi
-
-# some more ls aliases
-#alias ll='ls -alF'
-#alias la='ls -A'
-alias l='ls -CF'
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias	l='ls -CF --color=auto'
+	alias	ll='ls -AlhF --color=auto'
+	alias	la='ls -AF --color=auto'
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if ! shopt -oq posix; then
-#  if [ -f /usr/share/bash-completion/bash_completion ]; then
-#    . /usr/share/bash-completion/bash_completion
-#  elif [ -f /etc/bash_completion ]; then
-#    . /etc/bash_completion
-#  fi
-#fi
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 # #######################################
 # ###  ___  _  _        _    __  __   ###
@@ -114,50 +111,38 @@ alias l='ls -CF'
 # ###                                 ###
 # ### 5/26/13            jaike howard ###
 # #######################################
-#
 # Servers and Channels:
-#
 # irc.freenode.net
-#      boingboing
-#      ubuntu
-#      archlinux 
-#
+#      boingboing, ubuntu, archlinux
 # mhserver.ddns01.com
-#     test
-#     admin
-#     forbiddensub
-#     anon
-#
+#     test, admin, forbiddensub, anon
 # Aliases:
 # Alvernative names that resolve to BitchX
-#alias bitchx='BitchX'
-#alias bx='BitchX' 
-#
+alias bitchx='BitchX'
+alias bx='BitchX' 
 # HOST URLS:
-# export IRCSERVER=irc.freenode.net
+export IRCSERVER=irc.freenode.net
 # export IRCSERVERS "server:port server2:port2 server3:port3" 
 # export IRC_HOST "virtual hostname here" (see sec. 3.7 for details)
-#
-#
 # User Settings:
 # export IRCNAME "hi, I'm no longer too lame to read BitchX.doc!"
 # export IRCUSER=Squid_BitchX_1_0
 # export IRCNAME=Cyber Bob BitchX
 # ########################################
-#set USERMODES +i
+set USERMODES +i
 # lets set the directory where the dcc-ed files will go
-#set DCC_DLDIR ~/Downloads
+set DCC_DLDIR ~/Downloads
 # do we want to show the away message once in the channels?
 # NOTE: some ops do kick/ban for this so be carefull!
-#set AUTO_AWAY_TIME 1000
-#set SHOW_AWAY_ONCE OFF
+set AUTO_AWAY_TIME 1000
+set SHOW_AWAY_ONCE OFF
 # we still dont want to auto-kick ops do we?
-#set KICK_OPS OFF
+set KICK_OPS OFF
 # we are nice guys and dont try to take over an unregistered channel if it becomes opless
 # by cycling it so lets set it here
-#set HACKING OFF
+set HACKING OFF
 # do we want the timestamps to be shown?
-#set TIMESTAMP ON
+set TIMESTAMP ON
 # OK now lets set some protection on here - this are quite nice settings,
 # nothing enforced so you leave in peace with the others - do not just
 # turn something on if you dont know what you're doing - you might have
@@ -166,15 +151,15 @@ alias l='ls -CF'
 # lets set the general flood protection on - we still want to be warned
 # dont we?
 # NOTE: this settings can be changed while the client running with /toggle
-#set FLOOD_PROTECTION OFF
-#set CTCP_FLOOD_RATE OFF
-#set FLOOD_WARNING OFF
-#set FLOOD_KICK OFF
-#set DEOPLOOD OFF
-#set PUBFLOOD OFF
-#set KICKFLOOD OFF
-#set JOINFLOOD OFF
-#set NICKFLOOD OFF
+set FLOOD_PROTECTION OFF
+set CTCP_FLOOD_RATE OFF
+set FLOOD_WARNING OFF
+set FLOOD_KICK OFF
+set DEOPLOOD OFF
+set PUBFLOOD OFF
+set KICKFLOOD OFF
+set JOINFLOOD OFF
+set NICKFLOOD OFF
 # now lets set the BANTYPE: N-normal B-better, etc.
 #set BANTYPE N
 # now we want to make our lifes better and make some aliases
@@ -198,12 +183,12 @@ alias l='ls -CF'
 # just give those away in a flash!!! don't be lazy and type it yourself!
 # and this wont be done on connect - is not a "Perform on Connect"
 # if you still want these automated check the [BX] forum for the scripts!
-#ALIAS ID /msg x@channels.undernet.org login
+ALIAS ID /msg x@channels.undernet.org login
 # do we want an alias to ask X to op us?
-#ALIAS OPME /msg x op $C $N
+ALIAS OPME /msg x op $C $N
 # NOTE: the alias for chanserv networks will be different from this one
 # do we want also a nickserv identify command alias?
-#ALIAS NICKSERV /msg nickserv identify
+ALIAS NICKSERV /msg nickserv identify
 # NOTE: check the difference here:
 # you will have to /ID your_user your_password
 # and /nickserv your_password
@@ -220,7 +205,7 @@ alias l='ls -CF'
 # just put the settings on aliases.
 # Of course if you use a script this some of aliases and settings will
 # be changed so read the info about the script first!
-
+# 
 # ########################################################################
 # ### 5/26/13                  MySQL Top                  jaike howard ### 
 # ########################################################################
@@ -231,55 +216,16 @@ alias l='ls -CF'
 # another. I use watch for all kinds of monitoring activities, 
 # such as watching a directory to see a file grow in size as it  
 # gets transfered.
-#
 # Here’s a quick shell function that you can  add  to 
 # bashrc/.bash_profile/.zshrc to use on arbitrary hosts:
-#
 # Then just pass in any creds/host info you need like a normal mysql 
 # command:
 # mysqltop -u[username] -p[password] -h[example.com] -P[port e.g. 3307]d
-#
 # COMMANDS:
 # n = time/seconds
 # ########################################################################
 function mysqltop() {
     MYSQL_OPTS=$@
     watch -n 1 --differences "mysql $MYSQL_OPTS -e 'show processlist'"
-}
-# ########################################################################
-# ### 5/26/13              Long List Human - llh          jaike howard ###
-# ######################################################################## 
-# ABOUT:
-# COMMANDS:
-# ########################################################################
-function llh() {
-    ls -lh
-}
-# ########################################################################
-# ### 5/26/13              Long List (Human) - ll         jaike howard ###
-# ########################################################################
-# ABOUT:
-# COMMANDS:
-# ########################################################################
-function ll() {
-    ls -lh
-}
-# ########################################################################
-# ### 5/26/13         Long List (Human) All - la          jaike howard ###
-# ########################################################################
-# ABOUT:
-# COMMANDS:
-# ########################################################################
-function la() {
-    ls -lah
-}
-# ########################################################################
-# ### 12/12/13     MSDOS Style Clear Screen - cls          jaike howard ###
-# ######################################################################## 
-# ABOUT:
-# COMMANDS:
-# ########################################################################
-function cls() {
-		clear
 }
 

@@ -1,0 +1,25 @@
+# colortail -g default FILENAME
+Groupings = {
+  'default' => [
+    { :match => /Fail/, :color => :red },
+    { :match => /fail/, :color => :red },
+    { :match => / /, :color => :red, :attributes => :dim },
+    { :match => / /, :color => :red, :attributes => :dim },
+    { :match => /ERROR/, :color => :red, :attributes => :bright },
+    { :match => /Error/, :color => :red, :attributes => :bright },
+    { :match => /error/, :color => :red, :attributes => :bright },
+    { :match => /DEBUG/, :color => :cyan },
+    { :match => /Debug/, :color => :cyan },
+    { :match => /debug/, :color => :cyan },
+    { :match => /\ .*\[INFO\].*\ /, :color => :magenta, :attributes => :dim },
+    { :match => /info/, :color => :magenta },
+    { :match => /INFO/, :color => :magenta },
+    { :match => /yaml/, :color => :yellow, :attributes => :bright },
+    { :match => /50a3853a\-95cd\-40ec\-bbb3\-d6cfcb987819/, :color => :green, :attributes => :bright },
+    { :match => /.*\{\S\:\ 50a3853a\-95cd\-40ec\-bbb3\-d6cfcb987819\,\}.*/, :color => :green, :attributes => :bright },
+    { :match => /\ TCP\ /, :color => :blue, :attributes => :bright },
+    { :match => /\ UDP\ /, :color => :blue },
+    { :match => /\ SSH\:\ /, :color => :blue }
+  ]
+}
+
